@@ -82,6 +82,7 @@
 */
     // SongPlayer.currentSong = null;
     SongPlayer.currentTime = null;
+    SongPlayer.isMuted = false;
 
 /*
 @desc Active song object from list of songs
@@ -175,6 +176,21 @@
         currentBuzzObject.setTime(time);
       }
     };
+
+     SongPlayer.mute = function () {
+      if (currentBuzzObject) {
+        currentBuzzObject.mute();
+        SongPlayer.isMuted=true;
+       }
+     };
+
+     SongPlayer.unmute = function () {
+      if (currentBuzzObject) {
+        currentBuzzObject.unmute();
+        SongPlayer.isMuted=false;
+       }
+     };
+
 
       return SongPlayer;
     }
